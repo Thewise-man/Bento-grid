@@ -8,9 +8,18 @@
   </head>
   <body>
     <div
+      id="preloader"
+      class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50"
+    >
+      <div
+        class="w-16 h-16 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"
+      ></div>
+    </div>
+    <div
       class="my-15 mx-5 font-sans-serif font-medium md:grid md:grid-cols-4 md:grid-rows-3 md:gap-4 md:mx-auto md:my-auto md:w-200 md:h-160 md:mt-10"
     >
       <div
+        id="content"
         class="bg-[#824FDE] rounded-lg p-8 mt-7 md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-2 md:-mb-10"
       >
         <h1
@@ -58,13 +67,19 @@
       <div
         class="bg-purple-100 rounded-lg p-7 mt-7 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-3 md:-mb-6 md:p-0 md:overflow-hidden"
       >
-        <p class="text-2xl text-center md:leading-none md:text-xl md:mt-8 md:px-7 md:text-left">Schedule to social media.</p>
+        <p
+          class="text-2xl text-center md:leading-none md:text-xl md:mt-8 md:px-7 md:text-left"
+        >
+          Schedule to social media.
+        </p>
         <img
           src="./assets/images/illustration-schedule-posts.webp"
           alt="schedule-posts"
           class="w-100 mt-3 mb-3 md:h-60 md:w-100 md:ml-8"
         />
-        <p class="text-1xl font-normal text-center mx-10 md:text-xs md:font-normal md:text-left md:mx-0 md:leading-none md:px-7">
+        <p
+          class="text-1xl font-normal text-center mx-10 md:text-xs md:font-normal md:text-left md:mx-0 md:leading-none md:px-7"
+        >
           Optimize post timings to publish content at the perfect time for your
           audience.
         </p>
@@ -77,7 +92,9 @@
           alt="grow-followers"
           class="w-60 ml-8 md:w-40 md:h-35 md:ml-4"
         />
-        <p class="text-3xl text-white font-medium text-center mx-10 mt-5 md:text-2xl md:mx-0 md:text-left md:leading-none md:-ml-2 md:-mt-4">
+        <p
+          class="text-3xl text-white font-medium text-center mx-10 mt-5 md:text-2xl md:mx-0 md:text-left md:leading-none md:-ml-2 md:-mt-4"
+        >
           Grow followers with non-stop content.
         </p>
       </div>
@@ -118,5 +135,19 @@
         />
       </div>
     </div>
+    <script>
+    window.addEventListener("load", () => {
+      const preloader = document.getElementById("preloader");
+      const content = document.getElementById("content");
+
+      // Add fade-out effect
+      preloader.classList.add("opacity-0", "transition-opacity", "duration-700");
+
+      setTimeout(() => {
+        preloader.classList.add("hidden"); // hide completely
+        content.classList.remove("hidden");
+      }, 700); // matches duration
+    });
+  </script>
   </body>
 </html>
